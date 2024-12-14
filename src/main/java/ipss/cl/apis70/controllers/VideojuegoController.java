@@ -26,6 +26,10 @@ public class VideojuegoController {
 
   @PostMapping(value = "create", produces = "application/json")
   public ResponseEntity<Object> createVideoJuego(@RequestBody Videojuego videojuego) {
+
+    if (videojuego.getTitle() == null || videojuego.getTitle().isEmpty()) {
+      throw new RuntimeException("El título del videojuego es obligatorio");
+    }
     videojuegoService.create(videojuego);
 
     // Crear Estructura de Respuesta
