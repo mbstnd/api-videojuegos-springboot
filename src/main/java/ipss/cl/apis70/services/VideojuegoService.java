@@ -1,5 +1,7 @@
 package ipss.cl.apis70.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,26 @@ public class VideojuegoService {
 
   // Crear
 
-  public Videojuego crear(Videojuego videojuego) {
+  public Videojuego create(Videojuego videojuego) {
     return videojuegoRepository.save(videojuego);
+  }
+
+  // Listar
+
+  public List<Videojuego> listAll() {
+    return videojuegoRepository.findAll();
+  }
+
+  // Buscar
+
+  public Videojuego find(String id) {
+    return videojuegoRepository.findById(id).orElse(null);
+  }
+
+  // Eliminar
+
+  public void delete(String id) {
+    videojuegoRepository.deleteById(id);
   }
 
 }
