@@ -38,7 +38,7 @@ public class WebSecurityConfig {
     User.UserBuilder userBuilder = User.builder();
 
     // Usuario 1
-    UserDetails mario = userBuilder
+    UserDetails marioUser = userBuilder
         .username("mario")
         .password(passwordEncoder.encode("123456"))
         .roles("USER")
@@ -51,7 +51,7 @@ public class WebSecurityConfig {
         .roles("ADMIN")
         .build();
 
-    return new InMemoryUserDetailsManager(mario, admin);
+    return new InMemoryUserDetailsManager(marioUser, admin);
 
   }
 
